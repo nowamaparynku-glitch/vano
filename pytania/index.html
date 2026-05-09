@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ile kosztuje kuchnia na wymiar? Jak wygląda proces? Jakie materiały wybrać? Odpowiadamy na najczęstsze pytania.">
+<title>VANO — Co warto wiedzieć przed zamówieniem kuchni</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23223d31'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='400' fill='%23d4af5a'%3EV%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="VANO — Co warto wiedzieć przed zamówieniem kuchni">
+<meta property="og:description" content="Ile kosztuje kuchnia na wymiar? Jak wygląda proces? Jakie materiały wybrać? Odpowiadamy na najczęstsze pytania.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--green-900:#1a2e25;--green-800:#223d31;--green-700:#2d4a3e;--green-600:#3a5e4e;--green-500:#4a7562;--green-400:#6b9680;--green-300:#8fb5a2;--cream-50:#faf8f4;--cream-100:#f5f1ea;--cream-200:#ede7db;--cream-300:#ddd4c4;--cream-400:#c4b8a4;--gold:#b8963e;--gold-light:#d4af5a;--gold-dark:#96782e;--text:#1a2e25;--text-soft:#3a5e4e;--text-muted:#6b9680;--white:#fff;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',-apple-system,sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--text);background:var(--cream-50);-webkit-font-smoothing:antialiased}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,244,0.92);backdrop-filter:blur(20px);border-bottom:1px solid rgba(26,46,37,0.06);transition:box-shadow .3s}
+nav.scrolled{box-shadow:0 2px 24px rgba(26,46,37,0.08)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:var(--serif);font-size:26px;font-weight:400;letter-spacing:6px;color:var(--green-800);text-decoration:none;text-transform:uppercase}
+.nav-logo span{display:block;font-family:var(--sans);font-size:9px;letter-spacing:4px;color:var(--text-muted);text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-size:14px;font-weight:400;color:var(--text-soft);text-decoration:none;transition:color .2s;letter-spacing:.5px}
+.nav-links a:hover{color:var(--green-800)}
+.nav-cta{background:var(--green-700)!important;color:var(--cream-50)!important;padding:11px 28px!important;border-radius:4px;font-weight:500!important}
+.mobile-toggle{display:none;background:none;border:none;cursor:pointer;width:28px;height:20px;position:relative}
+.mobile-toggle span{display:block;width:100%;height:1.5px;background:var(--green-800);position:absolute;left:0;transition:.3s}
+.mobile-toggle span:nth-child(1){top:0}.mobile-toggle span:nth-child(2){top:9px}.mobile-toggle span:nth-child(3){top:18px}
+
+.hero-small{background:var(--green-800);padding:120px 32px 60px;text-align:center}
+.hero-small .label{font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:var(--gold-light);margin-bottom:16px}
+.hero-small h1{font-family:var(--serif);font-size:clamp(28px,4vw,42px);color:var(--cream-50);font-weight:400;line-height:1.2;margin-bottom:16px}
+.hero-small p{font-size:16px;color:var(--green-300);font-weight:300;max-width:520px;margin:0 auto}
+
+.accordion-wrap{max-width:800px;margin:0 auto;padding:48px 32px 20px}
+
+.acc-item{margin-bottom:12px;border:1px solid var(--cream-200);border-radius:12px;background:var(--white);overflow:hidden;transition:box-shadow .3s}
+.acc-item:hover{box-shadow:0 4px 20px rgba(26,46,37,0.06)}
+.acc-item.open{border-color:var(--cream-300);box-shadow:0 8px 32px rgba(26,46,37,0.08)}
+
+.acc-header{display:flex;align-items:center;gap:16px;padding:24px 28px;cursor:pointer;user-select:none;transition:background .2s}
+.acc-header:hover{background:var(--cream-50)}
+.acc-num{font-family:var(--serif);font-size:24px;color:var(--gold);min-width:36px;font-weight:400}
+.acc-title-wrap{flex:1}
+.acc-title{font-family:var(--serif);font-size:20px;color:var(--green-800);font-weight:400;line-height:1.3}
+.acc-summary{font-size:13px;color:var(--text-muted);font-weight:300;margin-top:4px}
+.acc-arrow{width:24px;height:24px;flex-shrink:0;transition:transform .3s;color:var(--gold)}
+.acc-item.open .acc-arrow{transform:rotate(180deg)}
+
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-body-inner{padding:0 28px 32px;padding-left:80px}
+
+.acc-body-inner h3{font-family:var(--serif);font-size:20px;color:var(--green-800);font-weight:400;margin:28px 0 10px}
+.acc-body-inner h3:first-child{margin-top:8px}
+.acc-body-inner p{font-size:15px;line-height:1.8;color:var(--text-soft);font-weight:300;margin-bottom:14px}
+.acc-body-inner strong{font-weight:500;color:var(--text)}
+.acc-body-inner ul{list-style:none;margin:10px 0 18px;padding:0}
+.acc-body-inner ul li{font-size:14.5px;line-height:1.7;color:var(--text-soft);font-weight:300;padding:5px 0 5px 18px;position:relative}
+.acc-body-inner ul li::before{content:'';position:absolute;left:0;top:13px;width:8px;height:1px;background:var(--gold)}
+.hl{background:var(--cream-100);border-left:3px solid var(--gold);padding:18px 22px;border-radius:0 8px 8px 0;margin:20px 0;font-size:14.5px;line-height:1.7;color:var(--text-soft)}
+.hl strong{color:var(--green-800)}
+
+.ctable{width:100%;border-collapse:collapse;margin:20px 0;font-size:13.5px}
+.ctable th{background:var(--green-800);color:var(--cream-50);padding:12px 14px;text-align:left;font-weight:500;font-size:12px;letter-spacing:.5px}
+.ctable td{padding:10px 14px;border-bottom:1px solid var(--cream-200);color:var(--text-soft);font-weight:300;line-height:1.5}
+.ctable tr:nth-child(even) td{background:var(--cream-50)}
+.ctable td:first-child{font-weight:500;color:var(--text)}
+
+.cta-bottom{background:var(--green-800);padding:80px 32px;text-align:center;margin-top:40px}
+.cta-bottom h2{font-family:var(--serif);font-size:clamp(26px,3.5vw,36px);color:var(--cream-50);font-weight:400;margin-bottom:16px}
+.cta-bottom p{font-size:16px;color:var(--green-300);font-weight:300;margin-bottom:32px}
+.cta-bottom .contacts{display:flex;gap:24px;justify-content:center;flex-wrap:wrap}
+.contact-btn{display:flex;align-items:center;gap:10px;color:var(--cream-100);text-decoration:none;font-size:16px;padding:16px 32px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:8px;transition:all .3s}
+.contact-btn:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+.contact-btn svg{color:var(--gold-light);width:20px;height:20px}
+.back-link{display:inline-block;margin-top:32px;color:var(--green-400);text-decoration:none;font-size:14px}
+.back-link:hover{color:var(--cream-100)}
+
+footer{background:var(--green-900);padding:32px;text-align:center}
+footer .gl{width:40px;height:1px;background:var(--gold);opacity:.4;margin:0 auto 20px}
+footer p{font-size:13px;color:var(--green-500);font-weight:300}
+footer a{color:var(--green-400);text-decoration:none}
+
+@media(max-width:600px){
+.nav-links{display:none}.mobile-toggle{display:block}
+.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(250,248,244,0.98);backdrop-filter:blur(20px);padding:28px 20px;gap:24px;border-bottom:1px solid rgba(0,0,0,0.06)}
+.hero-small{padding:100px 20px 48px}
+.accordion-wrap{padding:32px 16px 20px}
+.acc-header{padding:20px 20px}
+.acc-body-inner{padding:0 20px 28px;padding-left:20px}
+.acc-title{font-size:18px}
+.acc-num{min-width:28px;font-size:20px}
+.cta-bottom{padding:60px 20px}
+.cta-bottom .contacts{flex-direction:column;align-items:stretch}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="../" class="nav-logo">VANO<span>Meble na wymiar</span></a>
+    <div class="nav-links" id="navLinks">
+      <a href="../">Strona główna</a>
+      <a href="../#realizacje">Realizacje</a>
+      <a href="../#kontakt" class="nav-cta">Zapytaj o wycenę</a>
+    </div>
+    <button class="mobile-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="hero-small">
+  <div class="label">Poradnik</div>
+  <h1>Co warto wiedzieć zanim<br>zamówisz kuchnię</h1>
+  <p>Kliknij w pytanie, które Cię interesuje.</p>
+</div>
+
+<div class="accordion-wrap">
+
+<!-- 1 -->
+<div class="acc-item" id="cena">
+  <div class="acc-header" onclick="toggle(this)">
+    <div class="acc-num">01</div>
+    <div class="acc-title-wrap">
+      <div class="acc-title">Ile kosztuje kuchnia na wymiar?</div>
+      <div class="acc-summary">8 000 - 30 000+ zł, zależy od materiałów i rozmiaru</div>
+    </div>
+    <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="acc-body">
+    <div class="acc-body-inner">
+      <p>Planujesz nową kuchnię i zastanawiasz się, na jaki wydatek się przygotować? To najczęstsze pytanie, jakie słyszymy od klientów. Odpowiedź "to zależy" nikogo nie urządza, dlatego przygotowaliśmy konkretny poradnik o tym, co realnie buduje cenę Twoich mebli.</p>
+      <h3>Ile trzeba zapłacić w 2026 roku?</h3>
+      <ul>
+        <li><strong>Kuchnia budżetowa:</strong> ok. 8 000 - 15 000 zł (proste układy, podstawowe materiały).</li>
+        <li><strong>Standard (najczęstszy wybór):</strong> ok. 15 000 - 30 000 zł (solidne materiały, lepsze systemy).</li>
+        <li><strong>Kuchnia rozbudowana:</strong> od 30 000 zł wzwyż (duże metraże, wyspy, blaty kamienne).</li>
+      </ul>
+      <div class="hl"><strong>Pamiętaj:</strong> cena obejmuje meble, blat i montaż. AGD zazwyczaj liczone jest osobno.</div>
+      <h3>Co najbardziej wpływa na cenę?</h3>
+      <h3>1. Grubość płyty - fundament trwałości</h3>
+      <p>W naszych realizacjach standardem jest płyta meblowa o <strong>grubości 18 mm</strong>. To gwarancja, że szafki nie będą się wyginać pod ciężarem naczyń. Tańsze rozwiązania z sieciówek często stosują płyty 16 mm, co drastycznie obniża sztywność mebli.</p>
+      <h3>2. Fronty - mat czy połysk?</h3>
+      <ul>
+        <li><strong>Laminat (standard):</strong> najtańsza i bardzo praktyczna opcja.</li>
+        <li><strong>Fronty w połysku:</strong> wyglądają nowocześnie, ale są droższe od zwykłego laminatu.</li>
+      </ul>
+      <h3>3. Systemy i okucia</h3>
+      <p>To serce kuchni. Ciche domykanie szuflad, pełen wysuw czy systemy narożne (cargo) podnoszą koszt, ale to one sprawiają, że korzystanie z kuchni cieszy każdego dnia.</p>
+      <h3>4. Blat kuchenny</h3>
+      <p>Najczęściej wybierany <strong>laminat</strong> jest przyjazny dla portfela i bardzo trwały. Jeśli marzysz o kamieniu lub spieku, musisz liczyć się z tym, że sam blat może kosztować tyle, co połowa reszty mebli.</p>
+      <div class="hl"><strong>Dlaczego my?</strong> Nasz czas realizacji to zazwyczaj <strong>4-6 tygodni</strong> (średnia w branży to 8-10 tygodni). Jeśli coś w Twoim projekcie niepotrzebnie podbija cenę, po prostu Ci o tym powiemy.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="acc-item" id="ikea">
+  <div class="acc-header" onclick="toggle(this)">
+    <div class="acc-num">02</div>
+    <div class="acc-title-wrap">
+      <div class="acc-title">Kuchnia na wymiar czy IKEA?</div>
+      <div class="acc-summary">Szczera odpowiedź: kiedy gotowce mają sens, a kiedy nie</div>
+    </div>
+    <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="acc-body">
+    <div class="acc-body-inner">
+      <p>To pytanie zadaje sobie prawie każda rodzina. Wybór między gotowymi modułami a meblami od stolarza to nie tylko kwestia ceny, ale przede wszystkim trwałości i Twojego spokoju na lata.</p>
+      <h3>IKEA i "gotowce" - kiedy to ma sens?</h3>
+      <p>Meble z sieciówek mają swoje zalety: są dostępne od ręki i mają niską cenę startową. Jeśli potrzebujesz kuchni "na już" do mieszkania pod wynajem o standardowych wymiarach, gotowe szafki mogą być dobrym rozwiązaniem.</p>
+      <h3>Dlaczego kuchnia na wymiar wygrywa?</h3>
+      <h3>1. Wykorzystanie każdego centymetra</h3>
+      <p>W gotowych systemach szafki mają określone szerokości. Jeśli Twoja ściana ma 317 cm, w IKEA zostaniesz z 17-centymetrową szparą. <strong>U stolarza:</strong> projektujemy meble pod Twój wymiar. Wykorzystujemy każdą wnękę i dopasowujemy szafki idealnie pod sufit.</p>
+      <h3>2. Jakość materiałów</h3>
+      <p>Standardem w sieciówkach są często cieńsze płyty (16 mm). <strong>U stolarza:</strong> stosujemy solidną <strong>płytę 18 mm</strong>, która wytrzyma lata trzaskania szufladami. Nasze fronty są lepiej zabezpieczone przed wilgocią.</p>
+      <h3>3. Montaż i gwarancja</h3>
+      <p>Kupując gotowe meble, musisz je sam złożyć lub wynająć ekipę. <strong>U stolarza:</strong> bierzemy pełną odpowiedzialność. Od pomiaru, przez produkcję, aż po montaż. Jeśli ściana jest krzywa, korygujemy to na etapie produkcji.</p>
+      <table class="ctable">
+        <tr><th>Cecha</th><th>IKEA / gotowe</th><th>Na wymiar</th></tr>
+        <tr><td>Dopasowanie</td><td>Ograniczone</td><td>Co do milimetra</td></tr>
+        <tr><td>Trwałość</td><td>Płyta 16 mm</td><td>Płyta 18 mm</td></tr>
+        <tr><td>Pod sufit</td><td>Trudna</td><td>Naturalna</td></tr>
+        <tr><td>Realizacja</td><td>Od ręki</td><td>4-6 tygodni</td></tr>
+        <tr><td>Unikalność</td><td>Powtarzalna</td><td>Jedyna taka</td></tr>
+      </table>
+      <div class="hl"><strong>Werdykt:</strong> na 2-3 lata - wybierz gotowce. Na lata dla rodziny - <strong>kuchnia na wymiar nie ma konkurencji.</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="acc-item" id="proces">
+  <div class="acc-header" onclick="toggle(this)">
+    <div class="acc-num">03</div>
+    <div class="acc-title-wrap">
+      <div class="acc-title">Jak wygląda proces krok po kroku?</div>
+      <div class="acc-summary">6 kroków od rozmowy do gotowej kuchni, bez stresu</div>
+    </div>
+    <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="acc-body">
+    <div class="acc-body-inner">
+      <p>Wiele osób odkłada decyzję o nowej kuchni, bo boją się remontowego chaosu. Działamy według prostego planu. Dzięki temu Ty masz spokój, a my pewność, że wszystko wyjdzie idealnie.</p>
+      <h3>1. Kontakt i umówienie pomiaru</h3>
+      <p>Wszystko zaczyna się od krótkiej rozmowy. Umawiamy się na dogodny termin i wstępnie ustalamy, czego potrzebujesz.</p>
+      <h3>2. Dokładny pomiar</h3>
+      <p>Przyjeżdżamy i mierzymy wszystko centymetr po centymetrze. Sprawdzamy czy powierzchnie są proste, gdzie są przyłącza i jak najlepiej wykorzystać przestrzeń.</p>
+      <h3>3. Projekt i wybór materiałów</h3>
+      <p>Najfajniejszy moment! Dobieramy fronty, blaty i systemy. Doradzamy, co sprawdzi się przy dzieciach, a co pięknie wygląda. Projektujemy tak, aby każdy centymetr był wykorzystany.</p>
+      <h3>4. Konkretna wycena</h3>
+      <p>Jasna wycena, bez "gwiazdek" i ukrytych kosztów. Wiesz dokładnie, za co płacisz.</p>
+      <h3>5. Produkcja (4-6 tygodni)</h3>
+      <p>Kiedy Ty odpoczywasz, my działamy. Mamy pełną kontrolę nad jakością i trzymamy się terminów.</p>
+      <h3>6. Czysty i sprawny montaż</h3>
+      <p>Przyjeżdżamy z gotowymi elementami i montujemy. Sprawdzamy każdą szufladę i każdy zawias - wszystko musi działać jak w zegarku.</p>
+      <div class="hl"><strong>Co to daje?</strong> Brak niespodzianek, jasne terminy, i lokalne wsparcie - nie znikamy po montażu. Jesteśmy na miejscu.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="acc-item" id="materialy">
+  <div class="acc-header" onclick="toggle(this)">
+    <div class="acc-num">04</div>
+    <div class="acc-title-wrap">
+      <div class="acc-title">Jakie materiały i systemy wybrać?</div>
+      <div class="acc-summary">Płyta 18 mm, cichy domyk, laminat - co się sprawdza</div>
+    </div>
+    <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="acc-body">
+    <div class="acc-body-inner">
+      <p>Wybór materiałów to nie tylko kwestia wyglądu, ale tego, jak Twoja kuchnia będzie wyglądać za 5 czy 10 lat.</p>
+      <h3>1. Płyta meblowa - postaw na 18 mm</h3>
+      <p>To najważniejsza decyzja. Zawsze wybieraj płytę o <strong>grubości 18 mm</strong>. Jest znacznie sztywniejsza i trwalsza niż zamienniki 16 mm. Szafki nie wyginają się, a zawiasy trzymają się mocno przez lata.</p>
+      <h3>2. Fronty - laminat czy połysk?</h3>
+      <ul>
+        <li><strong>Laminat:</strong> najlepszy wybór dla rodzin z dziećmi. Odporny na zarysowania i łatwy w czyszczeniu.</li>
+        <li><strong>Połysk:</strong> wygląda świetnie i powiększa małe kuchnie, ale wymaga częstszego przecierania.</li>
+      </ul>
+      <h3>3. Okucia i systemy</h3>
+      <ul>
+        <li><strong>Cichy domyk:</strong> absolutna podstawa - koniec z trzaskaniem.</li>
+        <li><strong>Szuflady zamiast dolnych szafek:</strong> wysuwasz i widzisz wszystko, bez nurkowania.</li>
+        <li><strong>Cargo:</strong> idealne do wąskich wnęk, świetna domowa spiżarnia.</li>
+      </ul>
+      <h3>4. Blat - solidny laminat</h3>
+      <p><strong>Blaty laminowane</strong> - odporne na ścieranie, setki wzorów, nie rujnują budżetu.</p>
+      <div class="hl"><strong>Podsumowując:</strong> solidna baza (płyta 18 mm) + cichy domyk = kuchnia, która cieszy każdego dnia.</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="acc-item" id="przygotowanie">
+  <div class="acc-header" onclick="toggle(this)">
+    <div class="acc-num">05</div>
+    <div class="acc-title-wrap">
+      <div class="acc-title">Jak przygotować mieszkanie przed montażem?</div>
+      <div class="acc-summary">Kolejność prac, gniazdka, podłoga, AGD - złote zasady</div>
+    </div>
+    <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="acc-body">
+    <div class="acc-body-inner">
+      <p>Zanim przyjedziemy z gotowymi meblami, Twoje pomieszczenie musi być odpowiednio przygotowane. Dobra organizacja to oszczędność czasu, pieniędzy i nerwów.</p>
+      <h3>1. Elektryka i hydraulika (zawsze najpierw!)</h3>
+      <p>Wszystkie gniazdka, przyłącza wody i odpływy muszą być gotowe <strong>zanim</strong> zaczniemy montaż.</p>
+      <div class="hl"><strong>Ważne:</strong> gniazdka pod AGD w zabudowie nie powinny znajdować się bezpośrednio za urządzeniem - sprzęt nie wejdzie do szafki. Najlepiej umieścić je w szafkach obok.</div>
+      <h3>2. Ściany i podłogi</h3>
+      <ul>
+        <li><strong>Podłoga:</strong> musi być ułożona i gotowa. Meble montujemy na gotowej podłodze.</li>
+        <li><strong>Ściany:</strong> otynkowane i pomalowane. Płytki między szafkami najlepiej kłaść po montażu mebli.</li>
+      </ul>
+      <h3>3. Kiedy kupić AGD?</h3>
+      <p>Sprzęt AGD najlepiej mieć wybrany już na etapie projektu. Musimy znać dokładne wymiary. Sprzęt powinien być na miejscu w dniu montażu.</p>
+      <h3>4. Sprzątanie przed montażem</h3>
+      <p>Przestrzeń musi być pusta. Usuń stare meble i zabezpiecz podłogę w korytarzu.</p>
+      <div class="hl"><strong>Kolejność:</strong> instalacje -> wykończenie (tynki, malowanie) -> podłoga -> meble (nasz przyjazd) -> detale (płytki nad blatem).</div>
+      <p><strong>Nasza rada:</strong> masz wątpliwości gdzie umieścić gniazdko? Zadzwoń na etapie remontu. Lepiej przesunąć kabel o 20 cm teraz, niż przerabiać ścianę później.</p>
+    </div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="acc-item" id="pulapki">
+  <div class="acc-header" onclick="toggle(this)">
+    <div class="acc-num">06</div>
+    <div class="acc-title-wrap">
+      <div class="acc-title">5 pułapek przy zamawianiu kuchni</div>
+      <div class="acc-summary">Na co uważać, żeby nie stracić pieniędzy i nerwów</div>
+    </div>
+    <svg class="acc-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+  <div class="acc-body">
+    <div class="acc-body-inner">
+      <p>Kuchnia na wymiar to inwestycja na lata. Niestety, łatwo wpaść w pułapki, które sprawią, że wymarzona kuchnia zacznie irytować po kilku miesiącach.</p>
+      <h3>1. Błędy pomiarowe - "jakoś to wejdzie"</h3>
+      <p>Największy błąd to projektowanie na podstawie orientacyjnych pomiarów lub rzutów od dewelopera. Ściany rzadko trzymają kąty.</p>
+      <p><strong>Nasza rada:</strong> zawsze wymagaj, aby stolarz sam zmierzył wszystko na miejscu.</p>
+      <h3>2. Słabe prowadnice i zawiasy</h3>
+      <p>Kuchnia wygląda ładnie z zewnątrz, ale to co w środku decyduje o jej życiu. Tanie prowadnice po roku zaczną skrzypieć.</p>
+      <p><strong>Na co uważać:</strong> pytaj o markę okuć. Lepiej prostsze fronty, ale pancerne "bebechy" w szafkach.</p>
+      <h3>3. Ukryte koszty - cena "od szafki"</h3>
+      <p>Uważaj na oferty podejrzanie tanie. Często cena obejmuje tylko szafki, a montaż, transport i wycięcia to ekstra.</p>
+      <p><strong>Nasza rada:</strong> żądaj jasnej wyceny za całość. U nas wiesz dokładnie ile kosztuje gotowa kuchnia z montażem.</p>
+      <h3>4. Brak gwarancji i kontaktu</h3>
+      <p>Fachowiec bierze zaliczkę, montuje i znika. Gdy trzeba coś wyregulować, telefon milczy.</p>
+      <p><strong>Na co uważać:</strong> wybieraj lokalne firmy. My jesteśmy na miejscu i nie możemy sobie pozwolić na ignorowanie klientów.</p>
+      <h3>5. Piękny projekt, który jest niefunkcjonalny</h3>
+      <p>Zbyt mały blat roboczy, szafki które się obijają, lodówka za daleko od zlewu - to błędy, które utrudniają życie.</p>
+      <p><strong>Nasza rada:</strong> dobry stolarz to też doradca. Jeśli widzimy, że coś będzie niewygodne, po prostu Ci powiemy.</p>
+      <div class="hl"><strong>Podsumowując:</strong> nie daj się skusić tylko niską ceną. Pytaj o detale, sprawdzaj opinie i stawiaj na sprawdzonych wykonawców. Solidna kuchnia to taka, o której zapominasz, że ją masz - bo po prostu działa.</div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="cta-bottom">
+  <h2>Masz pytania?<br>Porozmawiajmy.</h2>
+  <p>Wycena i doradztwo bezpłatnie. Bez zobowiązań.</p>
+  <div class="contacts">
+    <a href="tel:+48782306617" class="contact-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      782 306 617
+    </a>
+    <a href="mailto:vanomeble@gmail.com" class="contact-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      vanomeble@gmail.com
+    </a>
+  </div>
+  <a href="../" class="back-link">← Wróć na stronę główną</a>
+</div>
+
+<footer>
+  <div class="gl"></div>
+  <p>&copy; 2026 VANO - Meble na wymiar. <a href="../">Strona główna</a></p>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50)});
+const mt=document.getElementById('menuToggle');
+const nl=document.getElementById('navLinks');
+mt.addEventListener('click',()=>{nl.classList.toggle('open')});
+nl.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>nl.classList.remove('open'))});
+
+function toggle(header){
+  const item=header.parentElement;
+  const body=item.querySelector('.acc-body');
+  const inner=body.querySelector('.acc-body-inner');
+  if(item.classList.contains('open')){
+    body.style.maxHeight='0';
+    item.classList.remove('open');
+  }else{
+    document.querySelectorAll('.acc-item.open').forEach(i=>{
+      i.querySelector('.acc-body').style.maxHeight='0';
+      i.classList.remove('open');
+    });
+    item.classList.add('open');
+    body.style.maxHeight=inner.scrollHeight+'px';
+    setTimeout(()=>{item.scrollIntoView({behavior:'smooth',block:'start'})},100);
+  }
+}
+
+// Open from hash
+if(window.location.hash){
+  const target=document.querySelector(window.location.hash);
+  if(target&&target.classList.contains('acc-item')){
+    setTimeout(()=>{toggle(target.querySelector('.acc-header'))},300);
+  }
+}
+</script>
+
+</body>
+</html>

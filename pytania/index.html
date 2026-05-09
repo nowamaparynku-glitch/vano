@@ -355,21 +355,9 @@ function toggle(header){
     body.style.maxHeight='0';
     item.classList.remove('open');
   }else{
-    // Close all open items instantly (no animation) to prevent jump
-    document.querySelectorAll('.acc-item.open').forEach(i=>{
-      const b=i.querySelector('.acc-body');
-      b.style.transition='none';
-      b.style.maxHeight='0';
-      i.classList.remove('open');
-      // Re-enable transition after instant close
-      setTimeout(()=>{b.style.transition=''},10);
-    });
-    // Open new item after layout settles
-    setTimeout(()=>{
-      item.classList.add('open');
-      body.style.maxHeight=inner.scrollHeight+100+'px';
-      setTimeout(()=>{item.scrollIntoView({behavior:'smooth',block:'start'})},50);
-    },20);
+    item.classList.add('open');
+    body.style.maxHeight=inner.scrollHeight+100+'px';
+    setTimeout(()=>{item.scrollIntoView({behavior:'smooth',block:'start'})},50);
   }
 }
 

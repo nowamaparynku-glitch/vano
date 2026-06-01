@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23223d31'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='400' fill='%23d4af5a'%3EV%3C/text%3E%3C/svg%3E">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polityka Prywatności | VANO — Meble na wymiar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-900: #1a2e25;
+            --green-800: #223d31;
+            --green-700: #2d4a3e;
+            --green-600: #3a5e4e;
+            --green-500: #4a7562;
+            --green-400: #6b9680;
+            --green-300: #8fb5a2;
+            --cream-50: #faf8f4;
+            --cream-100: #f5f1ea;
+            --cream-200: #ede7db;
+            --cream-300: #ddd4c4;
+            --cream-400: #c4b8a4;
+            --gold: #b8963e;
+            --gold-light: #d4af5a;
+            --gold-dark: #96782e;
+            --text: #1a2e25;
+            --text-soft: #3a5e4e;
+            --text-muted: #6b9680;
+            --white: #ffffff;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', -apple-system, sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--sans); 
+            color: var(--text); 
+            background: var(--cream-50); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            background: rgba(250, 248, 244, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(26, 46, 37, 0.06);
+            box-shadow: 0 2px 24px rgba(26, 46, 37, 0.08);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 18px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-logo {
+            font-family: var(--serif);
+            font-size: 26px;
+            font-weight: 400;
+            letter-spacing: 6px;
+            color: var(--green-800);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .nav-logo span {
+            display: block;
+            font-family: var(--sans);
+            font-size: 9px;
+            letter-spacing: 4px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-soft);
+            text-decoration: none;
+            transition: color .4s;
+            letter-spacing: .5px;
+            margin-left: 36px;
+        }
+        .nav-links a:hover { color: var(--green-800); }
+
+        /* Content Section */
+        .policy-container {
+            max-width: 900px;
+            margin: 140px auto 80px;
+            padding: 0 32px;
+        }
+        .policy-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+        .policy-header h1 {
+            font-family: var(--serif);
+            font-size: clamp(36px, 5vw, 56px);
+            color: var(--green-900);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        .gold-line-center {
+            width: 60px;
+            height: 2px;
+            background: var(--gold);
+            margin: 24px auto;
+        }
+        .policy-meta {
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .policy-content {
+            background: var(--white);
+            padding: 60px;
+            border-radius: 4px;
+            border: 1px solid var(--cream-200);
+            box-shadow: 0 10px 40px rgba(26, 46, 37, 0.03);
+        }
+        .policy-content h2 {
+            font-family: var(--serif);
+            font-size: 28px;
+            color: var(--green-800);
+            margin: 40px 0 20px;
+            font-weight: 400;
+            border-bottom: 1px solid var(--cream-100);
+            padding-bottom: 10px;
+        }
+        .policy-content h2:first-child { margin-top: 0; }
+        .policy-content p {
+            margin-bottom: 20px;
+            color: var(--text-soft);
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        .policy-content ul {
+            margin-bottom: 24px;
+            padding-left: 20px;
+        }
+        .policy-content li {
+            margin-bottom: 12px;
+            color: var(--text-soft);
+            font-weight: 300;
+        }
+        .policy-content strong {
+            color: var(--green-900);
+            font-weight: 500;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--green-900);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 48px 32px;
+            text-align: center;
+        }
+        footer p {
+            font-size: 13px;
+            color: var(--green-500);
+            letter-spacing: .5px;
+            font-weight: 300;
+        }
+        footer a {
+            color: var(--green-400);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .policy-content { padding: 30px 20px; }
+            .nav-links { display: none; }
+            .policy-container { margin-top: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <a href="/" class="nav-logo">
+                VANO
+                <span>Meble na wymiar</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Strona główna</a>
+                <a href="/#oferta">Oferta</a>
+                <a href="/#realizacje">Realizacje</a>
+                <a href="/#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="policy-container">
+        <div class="policy-header">
+            <p class="policy-meta">Dokumentacja prawna</p>
+            <h1>Polityka Prywatności</h1>
+            <div class="gold-line-center"></div>
+            <p class="policy-meta">Data wejścia w życie: [Dzień.Miesiąc.Rok]</p>
+        </div>
+
+        <div class="policy-content">
+            <h2>1. Wprowadzenie</h2>
+            <p>Niniejsza Polityka Prywatności określa zasady przetwarzania i ochrony danych osobowych użytkowników korzystających ze strony internetowej marki <strong>VANO</strong>. Szanujemy prywatność naszych klientów i dbamy o to, aby ich dane osobowe były przetwarzane zgodnie z obowiązującymi przepisami prawa, w tym z Rozporządzeniem RODO (UE 2016/679).</p>
+
+            <h2>2. Administrator Danych Osobowych</h2>
+            <p>Administratorem danych osobowych jest:<br>
+            <strong>[Imię i Nazwisko / Nazwa Firmy]</strong><br>
+            Adres: [Ulica, Kod pocztowy, Miasto]<br>
+            NIP: [Numer NIP]<br>
+            E-mail: [Adres e-mail do kontaktu]</p>
+
+            <h2>3. Cel Przetwarzania Danych</h2>
+            <p>Głównym celem zbierania i przetwarzania danych osobowych jest:</p>
+            <ul>
+                <li><strong>Kontakt w sprawie projektowania, produkcji i montażu kuchni na wymiar</strong> – w tym przygotowanie indywidualnej oferty, konsultacje projektowe oraz realizacja zamówienia.</li>
+                <li>Realizacja usług stolarskich i montażowych.</li>
+                <li>Prowadzenie korespondencji z użytkownikiem.</li>
+                <li>Działania analityczne i marketingowe (w tym optymalizacja reklam).</li>
+            </ul>
+
+            <h2>4. Rodzaje Zbieranych Danych</h2>
+            <p>W ramach formularzy kontaktowych oraz interakcji ze stroną możemy zbierać:</p>
+            <ul>
+                <li>Imię i nazwisko</li>
+                <li>Adres e-mail</li>
+                <li>Numer telefonu</li>
+                <li>Adres planowanej inwestycji/montażu</li>
+                <li>Informacje techniczne (wymiary, preferencje projektowe)</li>
+                <li>Dane zbierane automatycznie (adres IP, typ przeglądarki)</li>
+            </ul>
+
+            <h2>5. Podstawa Prawna</h2>
+            <p>Przetwarzanie odbywa się na podstawie:</p>
+            <ul>
+                <li><strong>Art. 6 ust. 1 lit. a RODO</strong> – zgoda użytkownika (np. wysłanie formularza).</li>
+                <li><strong>Art. 6 ust. 1 lit. b RODO</strong> – działania niezbędne do wykonania umowy lub podjęcia działań przed jej zawarciem.</li>
+                <li><strong>Art. 6 ust. 1 lit. f RODO</strong> – prawnie uzasadniony interes Administratora (marketing, analityka).</li>
+            </ul>
+
+            <h2>6. Retencja Danych</h2>
+            <p>Dane będą przechowywane przez okres niezbędny do realizacji zapytania lub zlecenia, wymagany przez przepisy prawa (np. dokumentacja księgowa – 5 lat) lub do czasu wycofania zgody w przypadku działań marketingowych.</p>
+
+            <h2>7. Prawa Użytkownika</h2>
+            <p>Każdy użytkownik posiada prawo do dostępu do treści swoich danych, ich sprostowania, usunięcia („prawo do bycia zapomnianym”), ograniczenia przetwarzania, przenoszenia danych, wniesienia sprzeciwu oraz cofnięcia zgody w dowolnym momencie. Przysługuje Państwu również prawo wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych (PUODO).</p>
+
+            <h2>8. Pliki Cookies</h2>
+            <p>Strona wykorzystuje pliki cookies w celu zapewnienia prawidłowego działania serwisu, zapamiętywania preferencji oraz analizy ruchu. Użytkownik może zarządzać cookies w ustawieniach swojej przeglądarki.</p>
+
+            <h2>9. Meta Pixel</h2>
+            <p>Na stronie zainstalowany jest (lub zostanie zainstalowany) <strong>Meta Pixel</strong>. Jest to narzędzie analityczne, które pomaga mierzyć skuteczność reklam. Dane te są anonimowe dla Administratora, jednak Meta może je łączyć z profilem użytkownika w serwisach Facebook/Instagram zgodnie ze swoją polityką prywatności.</p>
+
+            <h2>10. Bezpieczeństwo</h2>
+            <p>Stosujemy odpowiednie środki techniczne i organizacyjne, aby chronić Twoje dane przed nieuprawnionym dostępem.</p>
+
+            <h2>11. Kontakt</h2>
+            <p>Wszelkie pytania dotyczące ochrony danych prosimy kierować na adres e-mail: <strong>[Twój Adres E-mail]</strong>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="gold-line-center" style="opacity: 0.3;"></div>
+        <p>&copy; 2026 VANO — Meble na wymiar. Wszelkie prawa zastrzeżone.</p>
+        <p style="margin-top: 8px;"><a href="/">Powrót do strony głównej</a></p>
+    </footer>
+
+</body>
+</html>

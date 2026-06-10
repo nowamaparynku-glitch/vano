@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANO - Kalkulator wyceny kuchni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#223d31;
+    --green-soft:#2c4c3d;
+    --cream:#faf8f4;
+    --gold:#b8963e;
+    --gold-light:#d4af5a;
+    --ink:#1c1c1a;
+    --muted:#7a7468;
+    --line:#e5e0d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'Outfit',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    line-height:1.5;
+    padding:24px 16px 80px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:560px;margin:0 auto}
+
+  /* header */
+  header{text-align:center;margin-bottom:28px}
+  .logo{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:600;
+    letter-spacing:.42em;
+    font-size:40px;
+    color:var(--gold);
+    padding-left:.42em;
+  }
+  .tagline{
+    font-size:13px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--muted);margin-top:4px;
+  }
+
+  /* cards */
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:20px;margin-bottom:16px;
+  }
+  .card h2{
+    font-family:'Cormorant Garamond',serif;font-weight:600;
+    font-size:22px;color:var(--green);margin-bottom:4px;
+  }
+  .card .hint{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+
+  /* stepper rows */
+  .row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:11px 0;border-bottom:1px solid var(--line);
+  }
+  .row:last-child{border-bottom:none}
+  .row .label{font-size:15px}
+  .row .sub{font-size:12px;color:var(--muted)}
+  .stepper{display:flex;align-items:center;gap:0}
+  .stepper button{
+    width:34px;height:34px;border:1px solid var(--line);background:var(--cream);
+    border-radius:9px;font-size:20px;color:var(--green);cursor:pointer;
+    display:flex;align-items:center;justify-content:center;line-height:1;
+    transition:background .12s,border-color .12s;
+  }
+  .stepper button:hover{background:#f1ede4;border-color:var(--gold-light)}
+  .stepper button:active{background:#e9e3d6}
+  .stepper .val{width:46px;text-align:center;font-size:17px;font-weight:500}
+  .mb-input{
+    width:74px;text-align:center;font-size:16px;font-family:'Outfit';
+    border:1px solid var(--line);border-radius:9px;padding:7px;color:var(--ink);
+    background:var(--cream);
+  }
+  .mb-input:focus{outline:2px solid var(--gold-light);outline-offset:-1px}
+
+  /* toggle rows */
+  .toggle-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:11px 0;border-bottom:1px solid var(--line);
+  }
+  .toggle-row:last-child{border-bottom:none}
+  .switch{position:relative;width:48px;height:28px;flex:none}
+  .switch input{opacity:0;width:0;height:0}
+  .slider{
+    position:absolute;inset:0;background:#d8d2c6;border-radius:28px;
+    cursor:pointer;transition:background .18s;
+  }
+  .slider:before{
+    content:"";position:absolute;width:22px;height:22px;left:3px;top:3px;
+    background:#fff;border-radius:50%;transition:transform .18s;
+  }
+  .switch input:checked + .slider{background:var(--green)}
+  .switch input:checked + .slider:before{transform:translateX(20px)}
+
+  /* base price banner */
+  .price-banner{
+    background:var(--green);color:var(--cream);border-radius:14px;
+    padding:20px 22px;margin-bottom:16px;
+    display:flex;align-items:baseline;justify-content:space-between;
+  }
+  .price-banner .lbl{font-size:13px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+  .price-banner .amt{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:600;color:var(--gold-light)}
+
+  /* tiers */
+  .tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+  .tier{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:14px 10px;text-align:center;
+  }
+  .tier.komfort{border-color:var(--gold-light);box-shadow:0 0 0 1px var(--gold-light)}
+  .tier .tname{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .tier .tprice{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--green)}
+  .tier .tplus{font-size:11px;color:var(--muted);margin-top:3px}
+  .tier .badge{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:3px}
+
+  /* total */
+  .total-card{
+    background:var(--green);color:var(--cream);border-radius:14px;padding:18px 20px;margin-bottom:16px;
+  }
+  .total-card .line{display:flex;justify-content:space-between;padding:5px 0;font-size:14px}
+  .total-card .line.dim{opacity:.78}
+  .total-card .grand{
+    border-top:1px solid rgba(212,175,90,.4);margin-top:8px;padding-top:12px;
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .total-card .grand .g-lbl{font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+  .total-card .grand .g-amt{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--gold-light)}
+
+  /* rates accordion */
+  details.rates{background:#fff;border:1px solid var(--line);border-radius:14px;padding:0 20px}
+  details.rates summary{
+    list-style:none;cursor:pointer;padding:16px 0;font-size:14px;color:var(--green);
+    display:flex;justify-content:space-between;align-items:center;font-weight:500;
+  }
+  details.rates summary::-webkit-details-marker{display:none}
+  details.rates summary .chev{transition:transform .2s;color:var(--muted)}
+  details.rates[open] summary .chev{transform:rotate(180deg)}
+  .rate-row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line)}
+  .rate-row label{font-size:13.5px}
+  .rate-row input{
+    width:96px;text-align:right;font-family:'Outfit';font-size:14px;
+    border:1px solid var(--line);border-radius:8px;padding:6px 8px;background:var(--cream);
+  }
+  .rate-row input:focus{outline:2px solid var(--gold-light);outline-offset:-1px}
+  .rate-note{font-size:11.5px;color:var(--muted);padding:12px 0 18px}
+
+  .footer-note{text-align:center;font-size:11.5px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="logo">VANO</div>
+    <div class="tagline">Kalkulator wyceny kuchni</div>
+  </header>
+
+  <!-- BASE -->
+  <div class="card">
+    <h2>Kuchnia</h2>
+    <div class="hint">Wariant bazowy: laminat, okucia Blum z cichym domykiem, LED pod szafkami, montaż w cenie.</div>
+
+    <div class="row">
+      <div><div class="label">Szafki dolne</div></div>
+      <div class="stepper" data-key="dolne">
+        <button type="button" data-act="-">−</button>
+        <span class="val">0</span>
+        <button type="button" data-act="+">+</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div><div class="label">Szafki górne</div></div>
+      <div class="stepper" data-key="gorne">
+        <button type="button" data-act="-">−</button>
+        <span class="val">0</span>
+        <button type="button" data-act="+">+</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div><div class="label">Słupki / wysoka zabudowa</div><div class="sub">lodówka, piekarnik, mikrofala</div></div>
+      <div class="stepper" data-key="slupki">
+        <button type="button" data-act="-">−</button>
+        <span class="val">0</span>
+        <button type="button" data-act="+">+</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div><div class="label">Półwysep</div></div>
+      <div class="stepper" data-key="polwysep">
+        <button type="button" data-act="-">−</button>
+        <span class="val">0</span>
+        <button type="button" data-act="+">+</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div><div class="label">Blat</div><div class="sub">metry bieżące</div></div>
+      <input class="mb-input" type="number" id="blat" value="0" min="0" step="0.5"> 
+    </div>
+  </div>
+
+  <!-- BASE PRICE -->
+  <div class="price-banner">
+    <span class="lbl">Cena bazowa</span>
+    <span class="amt" id="basePrice">0 zł</span>
+  </div>
+
+  <!-- TIERS (auto for offer) -->
+  <div class="tiers">
+    <div class="tier">
+      <div class="badge">&nbsp;</div>
+      <div class="tname">Bazowy</div>
+      <div class="tprice" id="tierBase">0 zł</div>
+      <div class="tplus">&nbsp;</div>
+    </div>
+    <div class="tier komfort">
+      <div class="badge">Polecany</div>
+      <div class="tname">Komfort</div>
+      <div class="tprice" id="tierKomfort">0 zł</div>
+      <div class="tplus" id="tierKomfortPlus">+0 zł</div>
+    </div>
+    <div class="tier">
+      <div class="badge">&nbsp;</div>
+      <div class="tname">Premium</div>
+      <div class="tprice" id="tierPremium">0 zł</div>
+      <div class="tplus" id="tierPremiumPlus">+0 zł</div>
+    </div>
+  </div>
+
+  <!-- ADD-ONS -->
+  <div class="card">
+    <h2>Dodatki</h2>
+    <div class="hint">Podaj liczbę szuflad i frontów, włącz to co klient chce. Pakiety wyżej liczą się same.</div>
+
+    <div class="row">
+      <div><div class="label">Liczba szuflad</div><div class="sub">dla Legrabox i LED w szufladach</div></div>
+      <div class="stepper" data-key="szuflady">
+        <button type="button" data-act="-">−</button>
+        <span class="val">0</span>
+        <button type="button" data-act="+">+</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div><div class="label">Powierzchnia frontów</div><div class="sub">m² (dla frontów MDF lakier.)</div></div>
+      <input class="mb-input" type="number" id="frontyM2" value="0" min="0" step="0.5">
+    </div>
+
+    <div class="row">
+      <div><div class="label">Szafki z Aventos</div><div class="sub">podnoszone fronty górne</div></div>
+      <div class="stepper" data-key="aventos">
+        <button type="button" data-act="-">−</button>
+        <span class="val">0</span>
+        <button type="button" data-act="+">+</button>
+      </div>
+    </div>
+
+    <div class="toggle-row">
+      <div><div class="label">Blum Legrabox</div><div class="sub">zamiast standardu</div></div>
+      <label class="switch"><input type="checkbox" id="optLegrabox"><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div><div class="label">LED w szufladach</div></div>
+      <label class="switch"><input type="checkbox" id="optLedSzuflady"><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div><div class="label">Cargo / organizer pod zlew</div></div>
+      <label class="switch"><input type="checkbox" id="optCargo"><span class="slider"></span></label>
+    </div>
+    <div class="toggle-row">
+      <div><div class="label">Fronty MDF lakierowane mat</div><div class="sub">zamiast laminatu</div></div>
+      <label class="switch"><input type="checkbox" id="optMdf"><span class="slider"></span></label>
+    </div>
+  </div>
+
+  <!-- TOTAL -->
+  <div class="total-card">
+    <div class="line"><span>Cena bazowa</span><span id="sumBase">0 zł</span></div>
+    <div class="line dim"><span>Dodatki</span><span id="sumDodatki">0 zł</span></div>
+    <div class="grand"><span class="g-lbl">Razem</span><span class="g-amt" id="sumGrand">0 zł</span></div>
+  </div>
+
+  <!-- RATES -->
+  <details class="rates">
+    <summary>Stawki <span class="chev">▾</span></summary>
+    <div class="rate-row"><label>Szafka dolna</label><input type="number" id="rateDolne" value="1600" step="50"></div>
+    <div class="rate-row"><label>Szafka górna</label><input type="number" id="rateGorne" value="900" step="50"></div>
+    <div class="rate-row"><label>Słupek / wysoka zabudowa</label><input type="number" id="rateSlupki" value="2200" step="50"></div>
+    <div class="rate-row"><label>Półwysep</label><input type="number" id="ratePolwysep" value="1500" step="50"></div>
+    <div class="rate-row"><label>Blat (za mb)</label><input type="number" id="rateBlat" value="250" step="10"></div>
+    <div class="rate-row"><label>Legrabox (za szufladę)</label><input type="number" id="rateLegrabox" value="530" step="10"></div>
+    <div class="rate-row"><label>LED w szufladzie (za szt.)</label><input type="number" id="rateLed" value="350" step="10"></div>
+    <div class="rate-row"><label>Cargo pod zlew (kpl)</label><input type="number" id="rateCargo" value="950" step="50"></div>
+    <div class="rate-row"><label>Aventos (za szafkę)</label><input type="number" id="rateAventos" value="1250" step="50"></div>
+    <div class="rate-row"><label>Fronty MDF lakier. (za m²)</label><input type="number" id="rateMdf" value="500" step="25"></div>
+    <div class="rate-note">Zmieniasz tu stawki, cała wycena przelicza się od razu. Punkt startowy odtworzony z realnej kuchni - dostrajaj po kilku wycenach.</div>
+  </details>
+
+  <div class="footer-note">VANO Meble na wymiar &middot; do użytku wewnętrznego</div>
+
+</div>
+
+<script>
+(function(){
+  // state
+  const counts = {dolne:0, gorne:0, slupki:0, polwysep:0, szuflady:0, aventos:0};
+
+  function n(id){ return parseFloat(document.getElementById(id).value) || 0; }
+  function fmt(v){ return Math.round(v).toLocaleString('pl-PL') + ' zł'; }
+
+  function baseRates(){
+    return {
+      dolne:n('rateDolne'), gorne:n('rateGorne'), slupki:n('rateSlupki'),
+      polwysep:n('ratePolwysep'), blat:n('rateBlat')
+    };
+  }
+
+  function calcBase(){
+    const r = baseRates();
+    return counts.dolne*r.dolne + counts.gorne*r.gorne + counts.slupki*r.slupki
+         + counts.polwysep*r.polwysep + n('blat')*r.blat;
+  }
+
+  // individual add-on costs
+  function addLegrabox(){ return counts.szuflady * n('rateLegrabox'); }
+  function addLed(){ return counts.szuflady * n('rateLed'); }
+  function addCargo(){ return n('rateCargo'); }
+  function addAventos(){ return counts.aventos * n('rateAventos'); }
+  function addMdf(){ return n('frontyM2') * n('rateMdf'); }
+
+  function calcDodatki(){
+    let d = 0;
+    if(document.getElementById('optLegrabox').checked) d += addLegrabox();
+    if(document.getElementById('optLedSzuflady').checked) d += addLed();
+    if(document.getElementById('optCargo').checked) d += addCargo();
+    if(document.getElementById('optMdf').checked) d += addMdf();
+    d += addAventos(); // Aventos driven by count, no toggle needed
+    return d;
+  }
+
+  function render(){
+    const base = calcBase();
+    const dodatki = calcDodatki();
+
+    // base banner + total
+    document.getElementById('basePrice').textContent = fmt(base);
+    document.getElementById('sumBase').textContent = fmt(base);
+    document.getElementById('sumDodatki').textContent = fmt(dodatki);
+    document.getElementById('sumGrand').textContent = fmt(base + dodatki);
+
+    // offer tiers (auto)
+    // Komfort = base + Legrabox(all drawers) + cargo
+    // Premium = base + MDF(m²) + Legrabox + LED(drawers) + cargo + Aventos(count)
+    const komfortPlus = addLegrabox() + addCargo();
+    const premiumPlus = addMdf() + addLegrabox() + addLed() + addCargo() + addAventos();
+
+    document.getElementById('tierBase').textContent = fmt(base);
+    document.getElementById('tierKomfort').textContent = fmt(base + komfortPlus);
+    document.getElementById('tierKomfortPlus').textContent = '+' + fmt(komfortPlus);
+    document.getElementById('tierPremium').textContent = fmt(base + premiumPlus);
+    document.getElementById('tierPremiumPlus').textContent = '+' + fmt(premiumPlus);
+  }
+
+  // steppers
+  document.querySelectorAll('.stepper').forEach(function(st){
+    const key = st.getAttribute('data-key');
+    const valEl = st.querySelector('.val');
+    st.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        const act = btn.getAttribute('data-act');
+        counts[key] = Math.max(0, counts[key] + (act === '+' ? 1 : -1));
+        valEl.textContent = counts[key];
+        render();
+      });
+    });
+  });
+
+  // inputs + toggles
+  ['blat','frontyM2','rateDolne','rateGorne','rateSlupki','ratePolwysep','rateBlat',
+   'rateLegrabox','rateLed','rateCargo','rateAventos','rateMdf']
+    .forEach(function(id){ document.getElementById(id).addEventListener('input', render); });
+
+  ['optLegrabox','optLedSzuflady','optCargo','optMdf']
+    .forEach(function(id){ document.getElementById(id).addEventListener('change', render); });
+
+  render();
+})();
+</script>
+</body>
+</html>
